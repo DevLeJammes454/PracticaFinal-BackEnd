@@ -25,7 +25,6 @@ const fileFilter = (req, file, cb) => {
     cb(new Error('Error: ¡Solo se permiten archivos de imagen (jpeg, jpg, png, gif)!'));
 };
 
-const upload = multer({ storage, fileFilter, limits: { fileSize: 1024 * 1024 * 5 } });
+const upload = multer({ storage, fileFilter, limits: { fileSize: 1024 * 1024 * 5 } }); // Límite de 5MB
 
 module.exports = upload;
-

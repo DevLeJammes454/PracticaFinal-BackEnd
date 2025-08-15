@@ -2,12 +2,12 @@ const fs = require('fs/promises');
 const path = require('path');
 const { v4: uuidv4 } = require('uuid');
 
-const residentsFilePath = path.join(__dirname, '../../data/residents.json');
+const dbFilePath = path.join(__dirname, '../../data/db.json');
 
 // Helper para leer los datos del JSON
 const readData = async () => {
     try {
-        const data = await fs.readFile(residentsFilePath, 'utf-8');
+        const data = await fs.readFile(dbFilePath, 'utf-8');
         return JSON.parse(data);
     } catch (error) {
         // Si el archivo no existe o está vacío, devolvemos un array vacío
@@ -20,7 +20,7 @@ const readData = async () => {
 
 // Helper para escribir los datos en el JSON
 const writeData = async (data) => {
-    await fs.writeFile(residentsFilePath, JSON.stringify(data, null, 2));
+    await fs.writeFile(dbFilePath, JSON.stringify(data, null, 2));
 };
 
 // GET /api/residentes
@@ -51,7 +51,7 @@ const createResident = async (req, res) => {
 
     // Los campos numéricos de multipart/form-data llegan como string, los convertimos
     if (newResident.telefono) {
-        newResident.telefono = Number(newResident.telefono);
+        newResident.telefono = String(newResident.telefono);
     }
 
     residents.push(newResident);
@@ -71,7 +71,7 @@ const updateResident = async (req, res) => {
     const oldResident = residents[residentIndex];
     const updatedResident = { ...oldResident, ...req.body };
 
-    // Si se sube un nuevo archivo, actualizamos la ruta y borramos el anterior
+    // Si se sube un nuevo archivo, actualizamos la ruta y borramos el anterior (si existía)
     if (req.file) {
         if (oldResident.foto) {
             fs.unlink(path.resolve(oldResident.foto)).catch(err => console.error("No se pudo borrar la foto anterior:", err));
@@ -80,7 +80,7 @@ const updateResident = async (req, res) => {
     }
 
     if (updatedResident.telefono) {
-        updatedResident.telefono = Number(updatedResident.telefono);
+        updatedResident.telefono = String(updatedResident.telefono);
     }
 
     residents[residentIndex] = updatedResident;
@@ -94,6 +94,11 @@ const deleteResident = async (req, res) => {
     const residentIndex = residents.findIndex(r => r.id === req.params.id);
     if (residentIndex === -1) {
         return res.status(404).json({ message: 'Residente no encontrado' });
+    }
+
+    const residentToDelete = residents[residentIndex];
+    if (residentToDelete.foto) {
+        fs.unlink(path.resolve(residentToDelete.foto)).catch(err => console.error("No se pudo borrar la foto:", err));
     }
     
     residents = residents.filter(r => r.id !== req.params.id);

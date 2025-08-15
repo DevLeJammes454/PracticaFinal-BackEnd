@@ -5,9 +5,9 @@ const {
     createResident,
     updateResident,
     deleteResident
-} = require('../controllers/resident.controller');
-const { validateResident, parseJsonFields } = require('../validators/resident.validator');
-const upload = require('../middlewares/upload.middleware');
+} = require('../controllers/resident.controller.js');
+const { validateResident, parseJsonFields } = require('../validators/resident.validator.js');
+const upload = require('../middlewares/upload.middleware.js');
 
 const router = Router();
 

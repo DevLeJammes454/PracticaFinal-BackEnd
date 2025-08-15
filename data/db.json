@@ -192,5 +192,26 @@
     },
     "notas": "Residente con experiencia en backend.",
     "foto": ""
+  },
+  {
+    "id": "1739d4d3-0bd1-4f30-8631-18ff70ada40c",
+    "nombre": "maria",
+    "apellido": "solano",
+    "genero": "Femenino",
+    "fechaNacimiento": "2002-05-15",
+    "telefono": "1234567890",
+    "correoElectronico": "maria.solano@email.com",
+    "institutoProcedencia": "Instituto Tecnológico de Softwareland",
+    "carrera": "Ingeniería en Sistemas Computacionales",
+    "lenguajesProgramacion": {
+      "JavaScript": true,
+      "HTML+CSS": true,
+      "PHP": false,
+      "Python": false,
+      "C++": true,
+      "C#": false
+    },
+    "notas": "Residente con experiencia en backend.",
+    "foto": ""
   }
 ]

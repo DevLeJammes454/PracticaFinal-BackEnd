@@ -35,11 +35,7 @@ const residentSchema = Joi.object({
         'string.empty': 'El apellido no puede estar vacío.',
         'any.required': 'El campo apellido es obligatorio.'
     }),
-    genero: Joi.string().valid('Masculino', 'Femenino').required().messages({
-        'string.empty': 'El género tiene que ser entre masculino y femenino.',
-        'any.required': 'El campo género es obligatorio.'
-    }),
-
+    genero: Joi.string().valid('Masculino', 'Femenino').required(),
     fechaNacimiento: Joi.date().iso().max('now').required().messages({
         'date.base': 'La fecha de nacimiento debe ser una fecha válida en formato YYYY-MM-DD.',
         'date.max': 'La fecha de nacimiento no puede ser posterior al día de hoy.',
@@ -62,10 +58,7 @@ const residentSchema = Joi.object({
         'any.only': `La carrera debe ser una de las siguientes opciones: ${allowedCarreras.join(', ')}`,
         'any.required': 'El campo carrera es obligatorio.'
     }),
-    lenguajesProgramacion: lenguajesSchema.required().messages({
-        'any.required': 'El campo lenguajes de programación es obligatorio.'
-    }),
-
+    lenguajesProgramacion: lenguajesSchema.required(),
     notas: Joi.string().allow('').optional(),
     // No validamos el 'id' aquí porque es generado por el servidor
     id: Joi.string().uuid().optional()
