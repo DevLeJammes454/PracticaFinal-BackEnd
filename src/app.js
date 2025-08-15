@@ -8,6 +8,9 @@ const app = express();
 app.use(cors()); // Permite la comunicación entre dominios
 app.use(express.json()); // Permite al servidor entender JSON en el body de las peticiones
 
+// Servir archivos estáticos desde la carpeta 'uploads'
+app.use('/uploads', express.static('uploads'));
+
 // Rutas
 app.use('/api/residentes', residentRoutes);
 

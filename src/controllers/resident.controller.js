@@ -42,10 +42,18 @@ const getResidentById = async (req, res) => {
 // POST /api/residentes
 const createResident = async (req, res) => {
     const residents = await readData();
+
     const newResident = {
         id: uuidv4(), // Generamos un ID único
-        ...req.body
+        ...req.body,
+        foto: req.file ? req.file.path.replace(/\\/g, "/") : '' // Guardamos la ruta del archivo o un string vacío
     };
+
+    // Los campos numéricos de multipart/form-data llegan como string, los convertimos
+    if (newResident.telefono) {
+        newResident.telefono = Number(newResident.telefono);
+    }
+
     residents.push(newResident);
     await writeData(residents);
     res.status(201).json(newResident);
@@ -53,12 +61,28 @@ const createResident = async (req, res) => {
 
 // PUT /api/residentes/:id
 const updateResident = async (req, res) => {
-    const residents = await readData();
+    let residents = await readData();
     const residentIndex = residents.findIndex(r => r.id === req.params.id);
+
     if (residentIndex === -1) {
         return res.status(404).json({ message: 'Residente no encontrado' });
     }
-    const updatedResident = { ...residents[residentIndex], ...req.body };
+
+    const oldResident = residents[residentIndex];
+    const updatedResident = { ...oldResident, ...req.body };
+
+    // Si se sube un nuevo archivo, actualizamos la ruta y borramos el anterior
+    if (req.file) {
+        if (oldResident.foto) {
+            fs.unlink(path.resolve(oldResident.foto)).catch(err => console.error("No se pudo borrar la foto anterior:", err));
+        }
+        updatedResident.foto = req.file.path.replace(/\\/g, "/");
+    }
+
+    if (updatedResident.telefono) {
+        updatedResident.telefono = Number(updatedResident.telefono);
+    }
+
     residents[residentIndex] = updatedResident;
     await writeData(residents);
     res.json(updatedResident);
@@ -84,4 +108,3 @@ module.exports = {
     updateResident,
     deleteResident
 };
-

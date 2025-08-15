@@ -36,6 +36,7 @@ const residentSchema = Joi.object({
         'any.required': 'El campo apellido es obligatorio.'
     }),
     genero: Joi.string().valid('Masculino', 'Femenino').required().messages({
+        'string.empty': 'El género tiene que ser entre masculino y femenino.',
         'any.required': 'El campo género es obligatorio.'
     }),
 
@@ -53,7 +54,6 @@ const residentSchema = Joi.object({
         'string.email': 'Debe proporcionar un correo electrónico válido.',
         'any.required': 'El campo correo electrónico es obligatorio.'
     }),
-    foto: Joi.string().allow('').optional(), // Por ahora, lo tratamos como un string. Más adelante lo cambiaremos.
     institutoProcedencia: Joi.string().trim().min(1).required().messages({
         'string.empty': 'El instituto de procedencia no puede estar vacío.',
         'any.required': 'El campo instituto de procedencia es obligatorio.'
@@ -71,6 +71,17 @@ const residentSchema = Joi.object({
     id: Joi.string().uuid().optional()
 });
 
+const parseJsonFields = (req, res, next) => {
+    try {
+        if (req.body.lenguajesProgramacion && typeof req.body.lenguajesProgramacion === 'string') {
+            req.body.lenguajesProgramacion = JSON.parse(req.body.lenguajesProgramacion);
+        }
+    } catch (error) {
+        return res.status(400).json({ message: 'Error: El campo lenguajesProgramacion no es un JSON válido.', details: error.message });
+    }
+    next();
+};
+
 const validateResident = (req, res, next) => {
     const { error } = residentSchema.validate(req.body, { abortEarly: false });
 
@@ -82,5 +93,4 @@ const validateResident = (req, res, next) => {
     next();
 };
 
-module.exports = { validateResident };
-
+module.exports = { validateResident, parseJsonFields };

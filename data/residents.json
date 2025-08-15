@@ -171,5 +171,26 @@
       "C#": false
     },
     "notas": "Apasionado por la seguridad informática y el hacking ético."
+  },
+  {
+    "id": "4fc66951-21c5-45a2-98fa-5d6e2d437c4e",
+    "nombre": "maria",
+    "apellido": "solano",
+    "genero": "Femenino",
+    "fechaNacimiento": "2002-05-15",
+    "telefono": 1234567890,
+    "correoElectronico": "maria.solano@email.com",
+    "institutoProcedencia": "Instituto Tecnológico de Softwareland",
+    "carrera": "Ingeniería en Sistemas Computacionales",
+    "lenguajesProgramacion": {
+      "JavaScript": true,
+      "HTML+CSS": true,
+      "PHP": false,
+      "Python": false,
+      "C++": true,
+      "C#": false
+    },
+    "notas": "Residente con experiencia en backend.",
+    "foto": ""
   }
 ]
