@@ -1,1 +1,175 @@
-[]
+[
+  {
+    "id": "0c5fe315-ce0b-43c2-9295-bb38c56b58ad",
+    "nombre": "Ana",
+    "apellido": "García",
+    "genero": "Femenino",
+    "fechaNacimiento": "2001-10-22",
+    "telefono": 9876543210,
+    "correoElectronico": "ana.garcia@email.com",
+    "foto": "path/to/photo.png",
+    "institutoProcedencia": "Universidad de la Nube",
+    "carrera": "Ingeniería en Tecnologías de la Información",
+    "lenguajesProgramacion": {
+      "JavaScript": true,
+      "TypeScript": true,
+      "HTML+CSS": true,
+      "PHP": false,
+      "Python": true,
+      "C++": false,
+      "C#": false
+    },
+    "notas": "Entusiasta del desarrollo frontend y la ciberseguridad."
+  },
+  {
+    "id": "5cddc351-c35b-49fd-8559-2298c468d0aa",
+    "nombre": "Carliveth",
+    "apellido": "Rojas",
+    "genero": "Femenino",
+    "fechaNacimiento": "2002-05-15",
+    "telefono": 1234567890,
+    "correoElectronico": "carliveth.rojas@email.com",
+    "foto": "path/to/photo.png",
+    "institutoProcedencia": "Instituto Tecnológico de Softwareland",
+    "carrera": "Ingeniería en Sistemas Computacionales",
+    "lenguajesProgramacion": {
+      "JavaScript": true,
+      "HTML+CSS": true,
+      "PHP": false,
+      "Python": false,
+      "C++": true,
+      "C#": false
+    },
+    "notas": "Residente con experiencia en backend."
+  },
+  {
+    "id": "6bfb54de-e48d-4346-91cb-4d7369356c75",
+    "nombre": "Ana Lilia",
+    "apellido": "Perez",
+    "genero": "Femenino",
+    "fechaNacimiento": "2000-03-10",
+    "telefono": 2345678901,
+    "correoElectronico": "analilia.perez@email.com",
+    "foto": "path/to/photo.png",
+    "institutoProcedencia": "Universidad Autónoma de Código",
+    "carrera": "Ingeniería en Tecnologías de la Información",
+    "lenguajesProgramacion": {
+      "JavaScript": true,
+      "TypeScript": true,
+      "HTML+CSS": true,
+      "PHP": true,
+      "Python": false,
+      "C++": false,
+      "C#": false
+    },
+    "notas": "Especialista en desarrollo web full-stack."
+  },
+  {
+    "id": "927713e5-6f9f-486b-a8ee-32eeda900c95",
+    "nombre": "Helen",
+    "apellido": "Gomez",
+    "genero": "Femenino",
+    "fechaNacimiento": "2003-01-20",
+    "telefono": 3456789012,
+    "correoElectronico": "helen.gomez@email.com",
+    "foto": "path/to/photo.png",
+    "institutoProcedencia": "Instituto Politécnico de la Nube",
+    "carrera": "Ingeniería en Informática",
+    "lenguajesProgramacion": {
+      "JavaScript": false,
+      "TypeScript": false,
+      "HTML+CSS": false,
+      "PHP": false,
+      "Python": true,
+      "C++": true,
+      "C#": true
+    },
+    "notas": "Interesada en ciencia de datos y machine learning."
+  },
+  {
+    "id": "1995adef-67ce-42b1-99a1-838f79addfd6",
+    "nombre": "Juan Crispin",
+    "apellido": "Martinez",
+    "genero": "Masculino",
+    "fechaNacimiento": "1999-11-05",
+    "telefono": 4567890123,
+    "correoElectronico": "juan.crispin@email.com",
+    "foto": "path/to/photo.png",
+    "institutoProcedencia": "Universidad de la Compilación",
+    "carrera": "Ingeniería en Gestión Empresarial",
+    "lenguajesProgramacion": {
+      "JavaScript": true,
+      "HTML+CSS": true,
+      "PHP": false,
+      "Python": true,
+      "C++": false,
+      "C#": false
+    },
+    "notas": "Conocimientos en gestión de proyectos y metodologías ágiles."
+  },
+  {
+    "id": "6c81a16e-5ed5-45d7-aa88-cc5855f904cf",
+    "nombre": "Eduardo",
+    "apellido": "Lopez",
+    "genero": "Masculino",
+    "fechaNacimiento": "2001-08-12",
+    "telefono": 5678901234,
+    "correoElectronico": "eduardo.lopez@email.com",
+    "foto": "path/to/photo.png",
+    "institutoProcedencia": "Instituto Tecnológico de Softwareland",
+    "carrera": "Ingeniería en Sistemas Computacionales",
+    "lenguajesProgramacion": {
+      "JavaScript": true,
+      "TypeScript": true,
+      "HTML+CSS": true,
+      "PHP": false,
+      "Python": false,
+      "C++": false,
+      "C#": true
+    },
+    "notas": "Desarrollador .NET con experiencia en aplicaciones de escritorio."
+  },
+  {
+    "id": "e5f2e6fa-9830-4e8d-9897-c5e6ec5d18e3",
+    "nombre": "Gonzalo",
+    "apellido": "Ramirez",
+    "genero": "Masculino",
+    "fechaNacimiento": "2000-07-25",
+    "telefono": 6789012345,
+    "correoElectronico": "gonzalo.ramirez@email.com",
+    "foto": "path/to/photo.png",
+    "institutoProcedencia": "Universidad Autónoma de Código",
+    "carrera": "Ingeniería en Tecnologías de la Información",
+    "lenguajesProgramacion": {
+      "JavaScript": true,
+      "HTML+CSS": true,
+      "PHP": true,
+      "Python": true,
+      "C++": false,
+      "C#": false
+    },
+    "notas": "Experto en DevOps y automatización de infraestructura."
+  },
+  {
+    "id": "21e5a5b9-a9ea-4e6b-8128-8a88479d7ba6",
+    "nombre": "Gerardo",
+    "apellido": "Hernandez",
+    "genero": "Masculino",
+    "fechaNacimiento": "2002-09-30",
+    "telefono": 7890123456,
+    "correoElectronico": "gerardo.hernandez@email.com",
+    "foto": "path/to/photo.png",
+    "institutoProcedencia": "Instituto Politécnico de la Nube",
+    "carrera": "Ingeniería en Informática",
+    "lenguajesProgramacion": {
+      "JavaScript": false,
+      "TypeScript": false,
+      "HTML+CSS": true,
+      "PHP": false,
+      "Python": true,
+      "C++": true,
+      "C#": false
+    },
+    "notas": "Apasionado por la seguridad informática y el hacking ético."
+  }
+]
